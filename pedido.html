@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pedido Especial 💖</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="shortcut icon" href="kisspng-birthday-cake-computer-icons-pastel-5abd6e9f2fbbc0.4417113915223640631955.jpg">
+
+  <style>
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: #fff0f5;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 100vh;
+      margin: 0;
+      position: relative;
+    }
+
+    h1 {
+      color: #ff69b4;
+      font-size: 2.2em;
+      margin: 0 30px 50px;
+      max-width: 600px;
+      z-index: 2;
+    }
+
+    .button-container {
+      display: flex;
+      gap: 30px;
+      z-index: 2;
+    }
+
+    button {
+      padding: 18px 36px;
+      border: none;
+      border-radius: 16px;
+      font-size: 1.2em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    #sim {
+      background-color: #c1f0c1;
+      color: #2e8b57;
+    }
+
+    #nao {
+      background-color: #ffc4d6;
+      color: #b22222;
+      position: relative;
+    }
+
+    .free {
+      position: absolute !important;
+      transform: translate(0, 0);
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      transform: rotate(45deg);
+      animation: float 10s linear infinite;
+      opacity: 0.6;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        bottom: -10px;
+        left: calc(100% * var(--i));
+        opacity: 0.7;
+        transform: translateY(0) rotate(45deg);
+      }
+      100% {
+        bottom: 110%;
+        left: calc(100% * var(--i) + 30px);
+        opacity: 0;
+        transform: translateY(-100px) rotate(45deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Você quer deixar de ser minha conversante e ser oficialmente minha ficante?</h1>
+
+  <div class="button-container" id="button-container">
+    <button id="sim" onclick="window.location.href='sim.html'">Sim</button>
+    <button id="nao">Não</button>
+  </div>
+
+  <script>
+    const botaoNao = document.getElementById("nao");
+    const container = document.getElementById("button-container");
+    let liberou = false;
+
+    botaoNao.addEventListener("mouseenter", () => {
+      if (!liberou) {
+        // Primeira vez que passa o mouse: solta o botão "Não" do container
+        container.removeChild(botaoNao);
+        document.body.appendChild(botaoNao);
+        botaoNao.classList.add("free");
+        liberou = true;
+      }
+
+      // Faz ele se mover pela tela
+      const maxX = window.innerWidth - botaoNao.offsetWidth;
+      const maxY = window.innerHeight - botaoNao.offsetHeight;
+
+      const randomX = Math.random() * maxX;
+      const randomY = Math.random() * maxY;
+
+      botaoNao.style.left = `${randomX}px`;
+      botaoNao.style.top = `${randomY}px`;
+    });
+  </script>
+
+  <script>
+    for (let i = 0; i < 20; i++) {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (5 + Math.random() * 5) + 's';
+      heart.style.setProperty('--i', Math.random());
+      document.body.appendChild(heart);
+    }
+  </script>
+</body>
+</html>

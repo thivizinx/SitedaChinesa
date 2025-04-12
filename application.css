@@ -1,96 +1,120 @@
-html{
+html {
   height: 100%;
-  background-image: url(fundo.jpg);
+  background-image: url(fundo-rosa.jpg); /* coloque uma imagem fofa, floral ou em tons de rosa */
   background-position: center;
   background-size: cover;
 }
-*{
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Arial', Helvetica, sans-serif;
 }
-  p{
-    text-align: justify;
-    color: white;
 
-  }
-  body{
-    color: white;
- 
-  }
-  main {
-    background-color:#d3d3d34d;
-    width: 100%;
-    max-width: 800px;
-    padding: 5px 40px;
-    margin-top: 20px;
-    margin: auto;
-    border-radius: 10px;
+p {
+  text-align: justify;
+  color: #6b0047; /* tom de rosa escuro romântico */
+}
 
-  }
-  
- .band-name, .headline {
-    margin: 0;
-    text-align: center;
+body {
+  color: #6b0047;
+}
 
-  }
-  .logo{
-    display: block;
-    margin: 0;
-    text-align: center;
-  
-  }
-  .concerts {
-    margin: 30px 0;
-    text-align: center;
-    width: 100%;
-  }
-  
-  .concerts table {
-    background: #cb3a3ab3;
-    border-radius: 10px;
-    padding: 10px;
-    margin: 0 auto;
-  }
- ul{
-   color: red;
- }
-header .menu{
+main {
+  background-color: #ffd6e8; /* Rosa claro sólido */
+  width: 100%;
+  max-width: 800px;
+  padding: 20px 40px;
+  margin-top: 20px;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #dfbac9;
+  margin-bottom: 20px;
+}
+
+.band-name,
+.headline {
+  margin: 0;
+  text-align: center;
+  color: #d63384;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.concerts {
+  margin: 30px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.concerts table {
+  background: #ffc0cb; /* rosa bebê */
+  border-radius: 10px;
+  padding: 10px;
+  margin: 0 auto;
+  color: #6b0047;
+}
+
+ul {
+  color: #d63384; /* rosa vibrante */
+}
+
+header .menu {
   position: fixed;
   width: 100%;
-  display: flex;
+  display: inline-block;
   align-items: center;
   justify-content: space-between;
   padding: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  
 }
-header{
+
+header {
   width: 100%;
   height: 100vh;
-
 }
-header .menu li{
+
+header .menu li {
   display: inline-block;
+}
 
-}
-header .menu a{
-  color: white;
+header .menu a {
+  color: #6b0047;
   padding: 8px 12px;
+  font-weight: bold;
 }
-a{
+
+a {
   text-decoration: none;
 }
-header .menu .ativo, header .menu a:hover{
-  color: #444;
-  background-color: white;
+
+header .menu .ativo,
+header .menu a:hover {
+  color: white;
+  background-color: #d63384;
   border-radius: 3px;
   transition: 200ms;
 }
-.fotinha{
-width: 300px;
-}
-.prints{
-  display: block;
-  margin: auto;
+
+.fotinha {
+  width: 300px;
+  border: 3px solid #f8c8dc;
   border-radius: 10px;
+}
+
+.prints {
+  display: block;
+  margin: 20px auto; /* Centraliza e adiciona um espaço ao redor */
+  border-radius: 10px;
+  border: 3px solid #ffb6c1;
+  max-width: 100%; /* Garante que a imagem não ultrapasse o contêiner */
+  height: auto; /* Mantém a proporção da imagem */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona um leve sombreado para destacar */
 }
