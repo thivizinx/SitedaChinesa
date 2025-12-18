@@ -1,0 +1,740 @@
+/* ====================================
+   ESTILOS GERAIS
+   ==================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Paleta de cores */
+  --rosa-claro: #ffe5ec;
+  --rosa-pastel: #ffb3c6;
+  --rosa-bebe: #ffc2d1;
+  --rosa-medio: #ff8fab;
+  --branco: #ffffff;
+  --dourado: #d4af37;
+  --dourado-suave: #e8d4a0;
+  --texto-escuro: #4a4a4a;
+
+  /* Fontes */
+  --fonte-cursiva: "Great Vibes", cursive;
+  --fonte-clean: "Poppins", sans-serif;
+}
+
+body {
+  font-family: var(--fonte-clean);
+  background: linear-gradient(135deg, var(--rosa-claro) 0%, var(--branco) 50%, var(--rosa-claro) 100%);
+  color: var(--texto-escuro);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  min-height: 100vh;
+  padding: 80px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ====================================
+   CORAÇÕES FLUTUANTES
+   ==================================== */
+
+.floating-hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.heart {
+  position: absolute;
+  color: var(--rosa-pastel);
+  font-size: 20px;
+  opacity: 0.3;
+  animation: float 15s infinite ease-in-out;
+}
+
+.heart:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+  animation-duration: 12s;
+}
+
+.heart:nth-child(2) {
+  left: 30%;
+  animation-delay: 2s;
+  animation-duration: 14s;
+}
+
+.heart:nth-child(3) {
+  left: 50%;
+  animation-delay: 4s;
+  animation-duration: 16s;
+}
+
+.heart:nth-child(4) {
+  left: 70%;
+  animation-delay: 6s;
+  animation-duration: 13s;
+}
+
+.heart:nth-child(5) {
+  left: 90%;
+  animation-delay: 8s;
+  animation-duration: 15s;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+  }
+}
+
+/* ====================================
+   NAVEGAÇÃO
+   ==================================== */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 20px 0;
+  z-index: 1000;
+  box-shadow: 0 2px 20px rgba(255, 143, 171, 0.1);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 0 20px;
+}
+
+.nav-link {
+  color: var(--rosa-medio);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--dourado);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--dourado);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ====================================
+   SEÇÃO HERO (PÁGINA INICIAL)
+   ==================================== */
+
+.hero-section {
+  text-align: center;
+  background: radial-gradient(circle at center, var(--branco), var(--rosa-claro));
+}
+
+.hero-title {
+  font-family: var(--fonte-cursiva);
+  font-size: 5rem;
+  color: var(--rosa-medio);
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hero-text {
+  margin-bottom: 60px;
+}
+
+.text-large {
+  font-size: 1.5rem;
+  line-height: 2;
+  font-weight: 300;
+}
+
+.text-medium {
+  font-size: 1.3rem;
+  line-height: 1.8;
+}
+
+.highlight {
+  color: var(--rosa-medio);
+  font-weight: 600;
+  position: relative;
+  display: inline-block;
+}
+
+.special-moment {
+  background: var(--branco);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(255, 143, 171, 0.2);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Animações de entrada */
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
+
+.fade-in-delay {
+  animation: fadeIn 1s ease-in 0.5s backwards;
+}
+
+.fade-in-delay-2 {
+  animation: fadeIn 1s ease-in 1s backwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Indicador de rolagem */
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: var(--rosa-medio);
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-20px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+}
+
+/* ====================================
+   CONTADOR DE TEMPO
+   ==================================== */
+
+.counter-section {
+  background: linear-gradient(135deg, var(--rosa-pastel), var(--rosa-bebe));
+  padding: 80px 0;
+  text-align: center;
+}
+
+.counter-intro {
+  font-family: var(--fonte-cursiva);
+  font-size: 2.5rem;
+  color: var(--branco);
+  margin-bottom: 50px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.love-counter {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.counter-item {
+  background: var(--branco);
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  min-width: 150px;
+  transition: transform 0.3s ease;
+}
+
+.counter-item:hover {
+  transform: translateY(-10px);
+}
+
+.counter-number {
+  display: block;
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--rosa-medio);
+  margin-bottom: 10px;
+}
+
+.counter-label {
+  display: block;
+  font-size: 1rem;
+  color: var(--texto-escuro);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.counter-subtitle {
+  font-family: var(--fonte-cursiva);
+  font-size: 2rem;
+  color: var(--branco);
+  margin-top: 20px;
+}
+
+/* ====================================
+   TIMELINE (NOSSA HISTÓRIA)
+   ==================================== */
+
+.timeline-section {
+  background: var(--branco);
+}
+
+.section-title {
+  font-family: var(--fonte-cursiva);
+  font-size: 3.5rem;
+  color: var(--rosa-medio);
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--rosa-pastel), var(--dourado-suave));
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+  margin-left: auto;
+  margin-right: 60px;
+  text-align: right;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+  margin-left: 60px;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  background: var(--dourado);
+  border: 4px solid var(--branco);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px var(--rosa-pastel);
+  z-index: 1;
+}
+
+.timeline-content {
+  width: 45%;
+  background: var(--rosa-claro);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(255, 143, 171, 0.2);
+  transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(255, 143, 171, 0.3);
+}
+
+.timeline-content h3 {
+  color: var(--rosa-medio);
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.timeline-content p {
+  line-height: 1.8;
+}
+
+.special-text {
+  font-weight: 500;
+  color: var(--rosa-medio);
+}
+
+/* ====================================
+   GALERIA
+   ==================================== */
+   /* Grid da galeria */
+.love-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    justify-items: center;
+    margin-top: 40px;
+}
+
+/* Container da foto */
+.love-photo {
+    text-align: center;
+}
+
+/* Imagem */
+.love-photo img {
+    max-width: 220px;     /* tamanho reduzido */
+    width: 100%;
+    height: auto;         /* mantém a foto inteira */
+    border-radius: 18px;  /* suave, sem parecer card */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Hover delicado */
+.love-photo img:hover {
+    transform: scale(1.06);
+    box-shadow: 0 12px 30px rgba(255, 105, 180, 0.25);
+}
+
+/* Legenda */
+.love-caption {
+    margin-top: 12px;
+    font-size: 0.95rem;
+    color: #d16ba5;
+    font-style: italic;
+}
+
+
+.gallery-section {
+  background: linear-gradient(180deg, var(--branco), var(--rosa-claro));
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(255, 143, 171, 0.2);
+  transition: all 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(255, 143, 171, 0.3);
+}
+
+.gallery-item img {
+    width: 220px;        /* tamanho da foto */
+    height: 220px;       /* deixa quadrada */
+    object-fit: cover;   /* corta sem distorcer */
+    border-radius: 20px; /* cantos arredondados */
+    box-shadow: 0 10px 25px rgba(255, 105, 180, 0.3);
+    transition: transform 0.3s ease;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* efeito ao passar o mouse */
+.gallery-item img:hover {
+    transform: scale(1.05);
+}
+
+.gallery-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(255, 143, 171, 0.95), transparent);
+  color: var(--branco);
+  padding: 20px;
+  text-align: center;
+  font-style: italic;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-caption {
+  transform: translateY(0);
+}
+
+/* ====================================
+   SEÇÃO INTERATIVA
+   ==================================== */
+
+.interactive-section {
+  background: radial-gradient(circle at center, var(--rosa-claro), var(--branco));
+  text-align: center;
+}
+
+.interactive-container {
+  max-width: 600px;
+  margin: 50px auto;
+}
+
+.reveal-button {
+  background: linear-gradient(135deg, var(--rosa-medio), var(--rosa-pastel));
+  color: var(--branco);
+  font-size: 1.5rem;
+  padding: 20px 60px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(255, 143, 171, 0.4);
+  transition: all 0.3s ease;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.reveal-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(255, 143, 171, 0.5);
+}
+
+.reveal-button:active {
+  transform: translateY(-2px);
+}
+
+.messages-container {
+  margin-top: 50px;
+}
+
+.message {
+  font-size: 1.5rem;
+  color: var(--rosa-medio);
+  margin: 30px 0;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s ease;
+}
+
+.message.hidden {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.final-message {
+  font-family: var(--fonte-cursiva);
+  font-size: 3.5rem;
+  color: var(--dourado);
+  margin-top: 60px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  opacity: 1;
+  transform: scale(1);
+  transition: all 1s ease;
+}
+
+.final-message.hidden {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+/* ====================================
+   BOTÃO SITE ANTIGO
+   ==================================== */
+
+.old-site-section {
+  background: var(--rosa-pastel);
+  padding: 80px 0;
+  text-align: center;
+}
+
+.old-site-button {
+  display: inline-block;
+  background: var(--branco);
+  color: var(--rosa-medio);
+  font-size: 1.3rem;
+  padding: 20px 50px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.old-site-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  background: var(--dourado-suave);
+  color: var(--branco);
+}
+
+/* ====================================
+   FOOTER
+   ==================================== */
+
+.footer {
+  background: linear-gradient(135deg, var(--rosa-medio), var(--rosa-pastel));
+  color: var(--branco);
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.footer p {
+  margin: 10px 0;
+  font-size: 1.1rem;
+}
+
+.footer-small {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  font-style: italic;
+}
+
+/* ====================================
+   RESPONSIVIDADE MOBILE
+   ==================================== */
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  .text-large {
+    font-size: 1.2rem;
+  }
+
+  .text-medium {
+    font-size: 1.1rem;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+  }
+
+  .nav-container {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+  }
+
+  .counter-intro {
+    font-size: 1.8rem;
+  }
+
+  .love-counter {
+    gap: 20px;
+  }
+
+  .counter-item {
+    padding: 20px 30px;
+    min-width: 120px;
+  }
+
+  .counter-number {
+    font-size: 2.5rem;
+  }
+
+  /* Timeline mobile */
+  .timeline::before {
+    left: 20px;
+  }
+
+  .timeline-marker {
+    left: 20px;
+  }
+
+  .timeline-item:nth-child(odd) .timeline-content,
+  .timeline-item:nth-child(even) .timeline-content {
+    width: calc(100% - 80px);
+    margin-left: 60px;
+    margin-right: 0;
+    text-align: left;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .reveal-button {
+    font-size: 1.2rem;
+    padding: 15px 40px;
+  }
+
+  .message {
+    font-size: 1.2rem;
+  }
+
+  .final-message {
+    font-size: 2.5rem;
+  }
+
+  .old-site-button {
+    font-size: 1.1rem;
+    padding: 15px 35px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .section {
+    padding: 60px 0;
+  }
+
+  .special-moment {
+    padding: 30px 20px;
+  }
+}

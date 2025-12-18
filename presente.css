@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ffe4ec, #fff);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Corações flutuantes */
+.floating-hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    color: rgba(255, 105, 180, 0.3);
+    font-size: 24px;
+    animation: float 12s infinite linear;
+}
+
+.heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+.heart:nth-child(2) { left: 30%; animation-delay: 3s; }
+.heart:nth-child(3) { left: 60%; animation-delay: 6s; }
+.heart:nth-child(4) { left: 80%; animation-delay: 9s; }
+
+@keyframes float {
+    from {
+        transform: translateY(100vh);
+    }
+    to {
+        transform: translateY(-10vh);
+    }
+}
+
+/* Conteúdo */
+.gift-container {
+    text-align: center;
+    padding: 40px;
+    z-index: 2;
+}
+
+.gift-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3rem;
+    color: #d63384;
+    margin-bottom: 20px;
+}
+
+.gift-text {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* Presente */
+.gift-box {
+    font-size: 5rem;
+    margin: 20px 0 30px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+
+/* Botão */
+.open-gift-button {
+    display: inline-block;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #ff69b4, #ff85c1);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 40px;
+    font-weight: 600;
+    box-shadow: 0 10px 25px rgba(255, 105, 180, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.open-gift-button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 15px 35px rgba(255, 105, 180, 0.6);
+}
+
+/* Rodapé */
+.gift-footer {
+    margin-top: 30px;
+    font-size: 0.85rem;
+    color: #888;
+}
+
+/* Animações de entrada */
+.fade-in {
+    animation: fadeIn 1.2s ease forwards;
+}
+
+.fade-in-delay {
+    animation: fadeIn 1.2s ease forwards;
+    animation-delay: 0.6s;
+    opacity: 0;
+}
+
+.fade-in-delay-2 {
+    animation: fadeIn 1.2s ease forwards;
+    animation-delay: 1.2s;
+    opacity: 0;
+}
+
+.fade-in-delay-3 {
+    animation: fadeIn 1.2s ease forwards;
+    animation-delay: 1.8s;
+    opacity: 0;
+}
+
+.fade-in-delay-4 {
+    animation: fadeIn 1.2s ease forwards;
+    animation-delay: 2.4s;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
